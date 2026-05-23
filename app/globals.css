@@ -31,61 +31,68 @@
 }
 
 /* ===== Base ===== */
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-graphite);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.55;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-navy-deep);
+  }
+
+  /* Foco accesible discreto */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Tipografía display por defecto en encabezados.
+     El color es solo un default — cualquier clase text-* (text-cream, text-gold, etc.)
+     lo sobreescribe gracias al cascade layer. */
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    color: var(--color-navy-deep);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
 }
 
-body {
-  background-color: var(--color-cream);
-  color: var(--color-graphite);
-  font-family: var(--font-body);
-  font-weight: 400;
-  line-height: 1.55;
-}
+/* ===== Componentes ===== */
+@layer components {
+  /* Pequeño helper: detalles tipo eyebrow */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 500;
+  }
 
-::selection {
-  background-color: var(--color-gold);
-  color: var(--color-navy-deep);
-}
+  /* Línea decorativa fina en oro */
+  .rule-gold {
+    display: inline-block;
+    width: 48px;
+    height: 1px;
+    background-color: var(--color-gold);
+  }
 
-/* Foco accesible discreto */
-:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-/* Tipografía display por defecto en encabezados */
-h1, h2, h3, h4, h5 {
-  font-family: var(--font-display);
-  color: var(--color-navy-deep);
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-}
-
-/* Pequeño helper: detalles tipo eyebrow */
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-  font-weight: 500;
-}
-
-/* Línea decorativa fina en oro */
-.rule-gold {
-  display: inline-block;
-  width: 48px;
-  height: 1px;
-  background-color: var(--color-gold);
-}
-
-/* Cifras en estética financiera */
-.tabular {
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum";
+  /* Cifras en estética financiera */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
 }
