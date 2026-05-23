@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  /* ===== Paleta Brújula Markets ===== */
+  --color-navy: #0a2540;
+  --color-navy-deep: #0a2540;
+  --color-navy-mid: #1b3a5c;
+  --color-gold: #d4a574;
+  --color-gold-soft: #e5c399;
+  --color-cream: #faf7f2;
+  --color-sand: #e8dfd0;
+  --color-graphite: #2c2c2a;
+  --color-mist: #888780;
+  --color-bull: #3b6d11;
+  --color-bear: #a32d2d;
+
+  /* ===== Tipografías ===== */
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "SF Mono", Menlo, Consolas, monospace;
+
+  /* ===== Sombras editoriales ===== */
+  --shadow-editorial: 0 1px 2px rgba(10, 37, 64, 0.04),
+    0 8px 24px rgba(10, 37, 64, 0.06);
+  --shadow-card: 0 1px 3px rgba(10, 37, 64, 0.08),
+    0 12px 32px rgba(10, 37, 64, 0.08);
+
+  /* ===== Anchos editoriales ===== */
+  --container-prose: 65ch;
+}
+
+/* ===== Base ===== */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-graphite);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+
+/* Foco accesible discreto */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Tipografía display por defecto en encabezados */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--color-navy-deep);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+/* Pequeño helper: detalles tipo eyebrow */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+/* Línea decorativa fina en oro */
+.rule-gold {
+  display: inline-block;
+  width: 48px;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+
+/* Cifras en estética financiera */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
